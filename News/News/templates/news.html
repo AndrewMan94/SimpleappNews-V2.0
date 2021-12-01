@@ -1,0 +1,51 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+    <h2><u>Новости портала</u></h2>
+    <h3>{{ time_now }}</h3> -->
+    {% if News %}
+            <tr>
+                <td>
+                    Название
+                </td>
+                <td>
+                    Описание
+                <td>
+                </td>
+            </tr>
+        {% for product in products %}
+            <tr>
+                </td>
+                    <a class="nav-link" href="/news/{{ record.pk }}">{{ record.title|censor }}</a>
+                <td>
+                    {{ record.created }}
+                <td>
+                    {{ record.text|truncatechars:50|censor }}
+                <td>
+                    {{ product.category.name }}
+
+                </td>
+            </tr>
+            <hr>
+            Название
+                <p>
+                </p>
+            Описание
+                </p>
+                <p>
+
+                </p>
+            </li>
+        {% endfor %}
+
+    {% else %}
+        <h3>Новостей нет =(</h3>
+    {% endif %}
+    <h1>{{ News}}</h1>
+   <hr> {% endblock content %} <hr>
